@@ -6,11 +6,11 @@
 /*   By: lmangall <lmangall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:20 by lmangall          #+#    #+#             */
-/*   Updated: 2023/05/07 14:37:37 by lmangall         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:12:32 by lmangall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int arg)
+int	ft_tolower(int arg)
 {
 	if (arg >= 'A' && arg <= 'Z')
 		arg = arg + 32;

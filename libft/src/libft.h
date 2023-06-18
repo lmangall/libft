@@ -6,7 +6,7 @@
 /*   By: lmangall <lmangall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 13:54:17 by lmangall          #+#    #+#             */
-/*   Updated: 2023/05/09 13:57:51 by lmangall         ###   ########.fr       */
+/*   Updated: 2023/06/11 11:22:48 by lmangall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
 # include <stdbool.h>
+
+//the following is for GNL
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 typedef struct s_list
 {
@@ -283,7 +289,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 * @param s2: The suffix string.
 * @return The new string.NULL if the allocation fails.
 */
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(const char *s1, const char *s2);
 
 /**
 * @brief Allocates with malloc and returns a copy of
@@ -338,23 +344,23 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 * @param fd: The file descriptor on which to write.
 * @return void
 */
-void	ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(char c, int fd);
 
 /**
 * @brief Outputs the string ’s’ to the given file
 * descriptor.
 * @param s: The string to output.
 * @param fd: The file descriptor on which to write.
-* @return void
+* @return number of chars printed (1)
 */
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr_fd(char *s, int fd);
 
 /**
 * @brief Outputs the string ’s’ to the given file descriptor
 * followed by a newline.
 * @param s: The string to output.
 * @param fd: The file descriptor on which to write.
-* @return void
+* @return number of chars printed
 */
 void	ft_putendl_fd(char *s, int fd);
 
@@ -362,9 +368,9 @@ void	ft_putendl_fd(char *s, int fd);
 * @brief Outputs the integer ’n’ to the given file descriptor.
 * @param n: The integer to output.
 * @param fd: The file descriptor on which to write.
-* @return void
+* @return number of chars printed (1)
 */
-void	ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(int n, int fd);
 
 /**
  * @brief Verify in string if there is any space or similar char
@@ -372,5 +378,19 @@ void	ft_putnbr_fd(int n, int fd);
  * @return int. (0) if not space
  */
 int		ft_isspace(int c);
+
+// size_t	ft_strlen(char *s);
+// char	*ft_strchr(char *s, int c);
+// char	*ft_strjoin(char *stored_s, char *buff);
+
+//extra for GNL:
+char	*stored_s_to_str(char *stored_s);
+char	*new_stored_s(char	*stored_s);
+char	*get_next_line(int fd);
+char	*read_to_stored_s(int fd, char *stored_s);
+
+//extra for ft_printf:
+int		putnbr_with_itoa(int nbr);
+int		putunbr_with_itoa(unsigned int nbr);
 
 #endif

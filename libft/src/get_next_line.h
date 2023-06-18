@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmangall <lmangall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 16:00:19 by lmangall          #+#    #+#             */
-/*   Updated: 2023/06/11 10:42:53 by lmangall         ###   ########.fr       */
+/*   Created: 2023/01/16 15:23:19 by lmangall          #+#    #+#             */
+/*   Updated: 2023/05/24 15:30:07 by lmangall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	i;
+# include <stdlib.h>
 
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)s)[i] = c;
-		i++;
-	}
-	return (s);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
 
-/*
-int    main(void)
-   {
-       char s[] = "XmeBaby";
-       int c = 'X';
-       size_t n = 6;
-       ft_memset(s, c, n);
-       write (1, &s, 8);
-       return (0);
-   }
-*/
+size_t	ft_strlen(char *s);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin(char *stored_s, char *buff);
+char	*stored_s_to_str(char *stored_s);
+char	*new_stored_s(char	*stored_s);
+char	*get_next_line(int fd);
+char	*read_to_stored_s(int fd, char *stored_s);
+
+#endif

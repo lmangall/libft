@@ -6,7 +6,7 @@
 /*   By: lmangall <lmangall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 18:06:38 by lmangall          #+#    #+#             */
-/*   Updated: 2023/05/07 18:07:07 by lmangall         ###   ########.fr       */
+/*   Updated: 2023/06/13 10:36:43 by lmangall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	count_words(const char *str, char c)
 	int	i;
 	int	trigger;
 
+	if (str == 0 || str[0] == 0)
+		return (0);
 	i = 0;
 	trigger = 0;
 	while (*str)
